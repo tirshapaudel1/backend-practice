@@ -1,16 +1,17 @@
-// today we will study about MVC clean architecture and publish to github
 
-// At first, we will learn about userside ....!
 
 const express = require("express");
 const connectToDatabase = require("./db/db");
 const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
-
+app.use(express.json())
 
 connectToDatabase();
+
 const PORT = process.env.PORT;
+
+app.use("/auth", require("./routes/userRoutes"))
 
 
 
